@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  sms-gammu-gateway:   
+    container_name: "sms-gammu-gateway"
+    restart: always    
+    image: gammu-smsd-gateway
+    # devices: 
+    #   - /dev/ttyUSB0:/dev/modem:rwm  
+    device_cgroup_rules:
+      - 'c 188:* rmw'
+    volumes:
+      - /dev/docker/gammu:/dev/serial/by-id
+    tty: true    
+    env_file:
+      - .env
+    working_dir: /    
+    command: 'sh entrypoint.sh'

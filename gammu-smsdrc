@@ -1,0 +1,27 @@
+[gammu]
+; Device = /dev/modem
+Device = /dev/serial/by-id/usb-HUAWEI_HUAWEI_Mobile-if00-port0
+Connection = at115200
+
+[smsd]
+LogFile = /dev/stdout
+Pin = 1234
+Service = sql
+Driver = native_mysql
+
+HangupCalls = 1
+
+DebugLevel = 1
+
+MaxRetries = 3
+RetryTimeout = 120
+CommTimeout = 10
+StatusFrequency = 600
+ResetFrequency = 3600
+CheckSecurity = 0
+CheckBattery = 0
+CheckSignal = 0
+CheckNetwork = 1
+Receive = 1
+Send = 1
+DeliveryReport = no
